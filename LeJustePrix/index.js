@@ -1,6 +1,12 @@
 // Etape 1 - Sélectionner nos éléments
+let input = document.querySelector('#prix');
+let error = document.querySelector('small');
+let formulaire = document.querySelector('#formulaire');
+
 
 // Etape 2 - Cacher l'erreur
+error.style.display = 'none';
+
 
 // Etape 3 - Générer un nombre aléatoire
 
