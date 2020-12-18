@@ -55,7 +55,7 @@ class Guerrier extends Personnage{
 
     attaquer(personnage){
         personnage.sante = personnage.sante - this.attaque;
-        console.log(this.pseudo + " attaque " + personnage.pseudo);
+        console.log(` ${this.pseudo} attaque ${personnage.pseudo}`);
         console.log(personnage.pseudo + " reçoit " + this.attaque + " points de dégats");
         this.evoluer();
         personnage.verifierSante();
