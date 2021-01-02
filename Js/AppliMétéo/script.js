@@ -1,10 +1,23 @@
-requestWeather("Paris");
+//requestWeather("Paris");
+let gps_position;
+
+if ("geolocation" in navigator) {
+  console.log('ok')
+  navigator.geolocation.getCurrentPosition((position) => {
+    gps_position = position.coords.latitude;
+    console.log(gps_position);
+  });
+}else{
+  console.log('La localisation n\'est pas dispo');
+}
+
+
 
 //Change city name
 let button = document.querySelector("#changer");
 button.addEventListener("click", () => {
   let city_name = prompt("Entrer une ville : ");
-  city_name.replace(' ', '+');
+  city_name.replace(" ", "+");
   requestWeather(city_name);
 });
 
@@ -20,12 +33,11 @@ function requestWeather(city) {
     if (request.readyState === XMLHttpRequest.DONE) {
       if (request.status === 200) {
         let response = request.response;
-        console.log(response);
         document.querySelector("#ville").textContent = response.name;
         document.querySelector("#temperature_label").textContent =
           response.main.temp;
-      }else{
-          alert('Nous rencontrons une erreur veuillez reessayer ultérieurement')
+      } else {
+        alert("Nous rencontrons une erreur veuillez reessayer ultérieurement");
       }
     }
   };
